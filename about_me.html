@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О себе</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .skills ul {
+            padding-left: 25px;
+            line-height: 1.7;
+            text-align: left;
+            list-style-position: outside;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/avatar.jpg" alt="Фото Чумаковой Дарьи" width="480" height="360">
+        <h1>Чумакова Дарья</h1>
+        <p>Языковой энтузиаст и переводчик</p>
+        <img src="images/fl2.gif" alt="Цветок слева" class="flower flower-left">
+        <img src="images/fl1.png" alt="Цветок справа" class="flower flower-right">
+        <div class="theme-switch" id="theme-switch" role="button" aria-label="Переключить тему"></div>
+    </header>
+
+    <div class="between-strip"></div>
+
+    <main>
+        <section class="skills">
+            <h2>Навыки</h2>
+            <h3>Перевод:</h3>
+            <ul>
+                <li>Письменный перевод с английского на русский: статьи, посты, субтитры, переписка.</li>
+                <li>Художественный и адаптивный перевод — умею передавать смысл, а не слова.</li>
+                <li>Работа с CAT-инструментами и глоссариями (DeepL, Google Translate).</li>
+            </ul>
+
+            <h3>Изучение языков:</h3>
+            <ul>
+                <li>Английский — уверенное понимание (чтение, аудирование, переписка), B1–B2.</li>
+                <li>Испанский — начинающий уровень (A1–A2): базовая грамматика, Presente, ser/estar, повседневные фразы.</li>
+            </ul>
+
+            <h3>Межкультурная коммуникация:</h3>
+            <ul>
+                <li>Понимаю культурные контексты англо- и испаноязычного мира.</li>
+                <li>Опыт общения с носителями в языковых чатах и на разговорных клубах.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Проекты</h2>
+            <ol>
+                <li>Разговорный клуб / языковой обмен — организую встречи «английский ↔ испанский» для практики с другими учащимися.</li>
+                <li>Переводческий мини-блог «Puente» — перевожу короткие англоязычные статьи и посты на русский, добавляю культурные комментарии. Платформа: Telegram-канал / блог.</li>
+                <li>Мини-курс «Английский для чтения» — набор карточек и шпаргалок для тех, кто хочет понимать тексты, а не говорить. Anki-колода + PDF.</li>
+            </ol>
+        </section>
+
+        <section class="feedback">
+            <h2>Обратная связь</h2>
+            <form action="#" method="post" style="display: flex; flex-direction: column;">
+                <p>
+                    <label for="name">Имя:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+                </p>
+                <p>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Введите ваш email">
+                </p>
+                <p>
+                    <label for="message">Сообщение:</label><br>
+                    <textarea id="message" name="message" placeholder="Введите ваше сообщение"></textarea>
+                </p>
+                <p>
+                    <button type="submit">Отправить🌸</button>
+                </p>
+            </form>
+            <img src="images/kitto2.gif" alt="Декор" class="section-corner">
+            <div class="lang-switch" id="lang-switch" role="button" aria-label="Переключить язык"></div>
+        </section>
+
+    </main>
+
+    <aside>
+        <h2>Сейчас учу язык:</h2>
+        <img src="images/flag-spain.jpg" alt="Флаг Испании" width="300" height="220">
+        <img src="images/kitto.gif" alt="Декор" class="aside-corner">
+        <p>❤️ИСПАНСКИЙ❤️</p>
+        <p><a href="https://github.com/kkakbudto" target="_blank">Мои соцсети</a></p>
+    </aside>
+
+    <footer>
+        © 2026 Чумакова Дарья. Все права защищены.
+    </footer>
+
+    <img src="images/cursor2.gif" alt="" class="fake-cursor">
+    <script src="js.js"></script>
+</body>
+</html>
