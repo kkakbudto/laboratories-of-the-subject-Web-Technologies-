@@ -167,9 +167,6 @@
         input:focus,textarea:focus {
             outline: none;
             border: 3px solid transparent;
-            background:
-                linear-gradient(var(--color-card), var(--color-card)) padding-box,
-                linear-gradient(90deg, var(--flag-white), var(--flag-ru-blue), var(--flag-ru-red)) border-box;
             box-shadow: 0 0 0 3px var(--color-focus-ring);
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
