@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О себе</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .skills ul {
+            padding-left: 25px;
+            line-height: 1.7;
+            text-align: left;
+            list-style-position: outside;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body class="lang-ru">
+    <nav class="main-nav">
+        <a href="#skills">Навыки</a>
+        <a href="#projects">Проекты</a>
+        <a href="#feedback">Обратная связь</a>
+        <a href="#current-lang">Сейчас учу</a>
+        <a href="#phrases">Фраза недели</a>
+    </nav>
+
+    <header>
+        <div class="avatar-container" style="position: relative; display: inline-block;">
+            <img src="images/avatar.jpg" alt="Фото Чумаковой Дарьи" width="480" height="360">
+            <img src="images/miky.gif" id="miky-gif" alt="Miky">
+        </div>
+        <h1>Чумакова Дарья</h1>
+        <p>Языковой энтузиаст и переводчик</p>
+        <img src="images/fl2.gif" alt="Цветок слева" class="flower flower-left">
+        <img src="images/fl1.png" alt="Цветок справа" class="flower flower-right">
+        <div class="theme-switch" id="theme-switch" role="button" aria-label="Переключить тему"></div>
+    </header>
+    
+    <div class="between-strip"></div>
+    
+    <main>
+        <img src="images/cow.gif" id="overlay-gif" alt="Перекрытие">
+
+        <section id="skills" class="skills">
+            <h2>Навыки</h2>
+            <h3>Перевод:</h3>
+            <ul>
+                <li>Письменный перевод с английского на русский: статьи, посты, субтитры, переписка.</li>
+                <li>Художественный и адаптивный перевод — умею передавать смысл, а не слова.</li>
+                <li>Работа с CAT-инструментами и глоссариями (DeepL, Google Translate).</li>
+            </ul>
+
+            <h3>Изучение языков:</h3>
+            
+            <div class="lang-cards-container">
+                <div class="lang-card">
+                    <img src="images/flag-rus.jpg" alt="Флаг России" class="flag-img">
+                    <h4>Русский</h4>
+                    <p>Родной</p>
+                </div>
+                
+                <div class="lang-card">
+                    <img src="images/flag-eng.jpg" alt="Флаг Англии" class="flag-img">
+                    <h4>Английский</h4>
+                    <p>Уровень B1–B2</p>
+                </div>
+                
+                <div class="lang-card">
+                    <img src="images/flag-spain.jpg" alt="Флаг Испании" class="flag-img">
+                    <h4>Испанский</h4>
+                    <p>Уровень A1–A2</p>
+                </div>
+            </div>
+
+            <h3>Межкультурная коммуникация:</h3>
+            <ul>
+                <li>Понимаю культурные контексты англо- и испаноязычного мира.</li>
+                <li>Опыт общения с носителями в языковых чатах и на разговорных клубах.</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Проекты</h2>
+            <ol>
+                <li>Разговорный клуб / языковой обмен — организую встречи «английский ↔ испанский» для практики с другими учащимися.</li>
+                <li>Переводческий мини-блог «Puente» — перевожу короткие англоязычные статьи и посты на русский, добавляю культурные комментарии. Платформа: Telegram-канал / блог.</li>
+                <li>Мини-курс «Английский для чтения» — набор карточек и шпаргалок для тех, кто хочет понимать тексты, а не говорить. Anki-колода + PDF.</li>
+            </ol>
+        </section>
+
+        <section id="feedback" class="feedback">
+            <h2>Обратная связь</h2>
+            <form action="#" method="post" style="display: flex; flex-direction: column;">
+                <p>
+                    <label for="name">Имя:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+                </p>
+                <p>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Введите ваш email">
+                </p>
+                <p>
+                    <label for="message">Сообщение:</label><br>
+                    <textarea id="message" name="message" placeholder="Введите ваше сообщение"></textarea>
+                </p>
+                <p>
+                    <button type="submit">Отправить🌸</button>
+                </p>
+            </form>
+            <img src="images/kitto2.gif" alt="Декор" class="section-corner">
+            <div class="lang-switch" id="lang-switch" role="button" aria-label="Переключить язык"></div>
+        </section>
+
+    </main>
+
+    <aside id="current-lang">
+        <h2>Сейчас учу язык:</h2>
+        <img src="images/flag-spain.jpg" alt="Флаг Испании" width="300" height="220">
+        <img src="images/kitto.gif" alt="Декор" class="aside-corner">
+        <p>❤️ИСПАНСКИЙ❤️</p>
+        <p><a href="https://github.com/kkakbudto" target="_blank">Мои соцсети</a></p>
+    </aside>
+
+    <section id="phrases" class="phrase-gallery-section">
+        <h2>Фраза недели</h2>
+        
+        <div class="grid-gallery">
+            <div class="phrase-card">
+                <p class="phrase" lang="en">when nothing goes right, go left</p>
+                <p class="translation">когда всё идёт наперекосяк, иди налево</p>
+                <p class="transcription">[wɛn ˈnʌθɪŋ ɡoʊz raɪt, ɡoʊ lɛft]</p>
+                <button class="audio-btn" data-audio="audio/phrase1.mp3" aria-label="Слушать произношение">🔊</button>
+            </div>
+
+            <div class="phrase-card">
+                <p class="phrase" lang="es">¡VAMOS!</p>
+                <p class="translation">ВПЕРЕД!</p>
+                <p class="transcription">[ˈbamos]</p>
+                <button class="audio-btn" data-audio="audio/phrase2.mp3" aria-label="Слушать произношение">🔊</button>
+            </div>
+
+            <div class="phrase-card">
+                <p class="phrase" lang="en">Daisy bell</p>
+                <p class="translation">Колокольчик маргаритки</p>
+                <p class="transcription">[ˈdeɪ.zi bɛl]</p>
+                <button class="audio-btn" data-audio="audio/phrase3.mp3" aria-label="Слушать произношение">🔊</button>
+                <img src="images/ENA.gif" id="daisy-gif" alt="Танцующая гифка">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Чумакова Дарья. Все права защищены.
+    </footer>
+
+    <img src="images/cursor2.gif" alt="" class="fake-cursor">
+
+    <div id="back-to-top" role="button" aria-label="Вернуться наверх">↑</div>
+
+    <script src="js.js"></script>
+</body>
+</html>
