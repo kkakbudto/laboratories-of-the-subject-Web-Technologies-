@@ -168,11 +168,15 @@
             width: 100px;
             height: 100px;
             background: url("images/sun.png") no-repeat center / contain;
+            background-color: transparent; /* Защита от глобальной кнопки */
+            border: none;
+            padding: 0;
             cursor: pointer;
             transition: transform 0.3s ease, background 0.3s ease;
             transform: rotate(-5deg);
         }
         .theme-switch:hover {
+            background-color: transparent;
             transform: rotate(-5deg) scale(1.15);
         }
         body.theme-dark .theme-switch {
@@ -293,7 +297,7 @@
             margin: 10px auto 0;
         }
         button {
-            background: var(--color-primary);
+            background-color: var(--color-primary);
             color: var(--color-accent);
             border: none;
             padding: 10px 20px;
@@ -302,9 +306,9 @@
             text-shadow: var(--text-shadow-header);
         }
         button:hover {
-            background: var(--color-primary-dark);
+            background-color: var(--color-primary-dark);
             transform: scale(1.05);
-            transition: background 0.25s ease, transform 0.2s ease;
+            transition: background-color 0.25s ease, transform 0.2s ease;
         }
         button:active {
             transform: scale(0.97);
@@ -318,10 +322,14 @@
             width: 80px;
             height: 80px;
             background: url("images/flag-ru.png") no-repeat center / contain;
+            background-color: transparent;
+            border: none;
+            padding: 0;
             cursor: pointer;
             transition: transform 0.3s ease, background 0.3s ease;
         }
         .lang-switch:hover {
+            background-color: transparent;
             transform: scale(1.15);
         }
         body.lang-en .lang-switch {
@@ -576,15 +584,17 @@ img {
         grid-template-columns: 1fr;
     }
     .main-nav {
-        flex-direction: column;
-        align-items: center;
+        /* УДАЛИТЕ ЭТУ СТРОКУ: flex-direction: column; */
+        flex-wrap: wrap; /* Добавляем перенос строк по совету преподавателя */
+        justify-content: center;
         gap: 10px;
     }
     .main-nav a {
-        flex: none;
-        width: 100%; 
-        max-width: 250px; 
-        padding: 10px 0;
+        flex: 1 1 auto; /* Позволяем ссылкам растягиваться и переноситься */
+        width: auto; 
+        max-width: none; 
+        padding: 10px 15px; /* Увеличим отступы для удобства тач-интерфейса */
+        font-size: 16px; /* Слегка уменьшим шрифт, чтобы больше влезло */
     }
     header h1 {
         font-size: 22px;
