@@ -6,15 +6,15 @@
 Веб-сервер на Node.js и Express с раздачей статических файлов, API для генерации UUID и поддержкой PWA (манифест с иконками и Service Worker для работы в офлайн-режиме).
 
 Структура проекта
-- server.js — сервер на Express и маршруты API
-- package.json — описание проекта и зависимость express
-- public/index.html — главная страница с генератором UUID
-- public/about.html — страница «О себе»
-- public/styles.css — стили интерфейса
-- public/app.js — клиентская логика и регистрация Service Worker
-- public/manifest.json — манифест PWA
-- public/sw.js — Service Worker (кеширование статики и офлайн-режим)
-- public/icons/ — иконки приложения (192x192 и 512x512)
+- server.js - сервер на Express и маршруты API
+- package.json - описание проекта и зависимость express
+- public/index.html - главная страница с генератором UUID
+- public/about.html - страница «О себе»
+- public/styles.css - стили интерфейса
+- public/app.js - клиентская логика и регистрация Service Worker
+- public/manifest.json - манифест PWA
+- public/sw.js - Service Worker (кеширование статики и офлайн-режим)
+- public/icons/ - иконки приложения (192x192 и 512x512)
 
 Как запустить
 1. Установите зависимости:
@@ -25,11 +25,11 @@
    http://localhost:3000
 
 Реализованные маршруты
-- GET / — главная страница
-- GET /about — страница «О себе»
-- GET /api/status — JSON со статусом сервера
-- GET /api/uuid — генерация 1 UUID по умолчанию
-- GET /api/uuid?count=5 — генерация от 1 до 10 UUID через crypto.randomUUID()
+- GET / - главная страница
+- GET /about - страница «О себе»
+- GET /api/status - JSON со статусом сервера
+- GET /api/uuid - генерация 1 UUID по умолчанию
+- GET /api/uuid?count=5 - генерация от 1 до 10 UUID через crypto.randomUUID()
   (при count вне диапазона 1..10 или неверном формате возвращается код 400)
 
 Проверка PWA и офлайн-режима
