@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>О себе — Лабораторная работа №6</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-badge">ID</div>
+        <div>
+          <h1>О себе и проекте</h1>
+          <span>Лабораторная работа №6 · Вариант 17</span>
+        </div>
+      </div>
+      <nav>
+        <a href="/">Главная</a>
+        <a href="/about" class="active">О себе</a>
+        <button id="installBtn" class="secondary hidden" type="button">Установить PWA</button>
+      </nav>
+    </header>
+
+    <div class="status-bar">
+      <div class="pill">
+        <span id="netDot" class="dot"></span>
+        <span id="netStatus">Проверка сети...</span>
+      </div>
+      <div class="pill">
+        <span id="swDot" class="dot"></span>
+        <span id="swStatus">Service Worker: регистрация...</span>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Автор работы</h2>
+      <p class="subtitle">Учебный проект по курсу веб-разработки (введение в Node.js, Express и PWA).</p>
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Студент</h3>
+          <p>Дарья Чумакова</p>
+        </div>
+        <div class="info-box">
+          <h3>Университет и группа</h3>
+          <p>ТГУ, ИПМКН · группа 932402</p>
+        </div>
+        <div class="info-box">
+          <h3>Вариант задания</h3>
+          <p>№17 — Генератор UUID (несколько штук)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Реализованные маршруты сервера</h2>
+      <ul class="routes-list">
+        <li><strong>GET /</strong> — главная страница с интерфейсом генератора UUID.</li>
+        <li><strong>GET /about</strong> — текущая страница с информацией об авторе и проекте.</li>
+        <li><strong>GET /api/status</strong> — JSON-ответ со статусом и временем работы сервера.</li>
+        <li><strong>GET /api/uuid?count=5</strong> — генерирует от 1 до 10 UUID через crypto.randomUUID(). При count вне диапазона 1–10 возвращает HTTP 400.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Node.js · Express · PWA
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "lab6-variant17-uuid-pwa",
+  "version": "1.0.0",
+  "description": "Лабораторная работа №6: Node.js, Express и PWA — Генератор UUID (вариант 17)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "pwa",
+    "uuid",
+    "service-worker"
+  ],
+  "author": "Дарья Чумакова (группа 932402, ИПМКН ТГУ)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

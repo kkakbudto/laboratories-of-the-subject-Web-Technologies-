@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>Генератор UUID — Лабораторная работа №6</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-badge">ID</div>
+        <div>
+          <h1>Генератор UUID</h1>
+          <span>Лабораторная работа №6 · Вариант 17 · PWA</span>
+        </div>
+      </div>
+      <nav>
+        <a href="/" class="active">Главная</a>
+        <a href="/about">О себе</a>
+        <button id="installBtn" class="secondary hidden" type="button">Установить PWA</button>
+      </nav>
+    </header>
+
+    <div class="status-bar">
+      <div class="pill">
+        <span id="netDot" class="dot"></span>
+        <span id="netStatus">Проверка сети...</span>
+      </div>
+      <div class="pill">
+        <span id="swDot" class="dot"></span>
+        <span id="swStatus">Service Worker: регистрация...</span>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Сгенерировать UUID</h2>
+      <p class="subtitle">
+        Отправляет запрос на маршрут GET /api/uuid?count=N (от 1 до 10, по умолчанию 1).
+        В офлайн-режиме приложение остаётся доступным и может генерировать UUID локально в браузере.
+      </p>
+
+      <div class="controls">
+        <label for="countInput">Количество (1–10):</label>
+        <input id="countInput" type="number" min="1" max="10" value="5" />
+        <button id="generateBtn" type="button">Сгенерировать</button>
+        <button id="copyAllBtn" class="secondary" type="button">Скопировать все</button>
+      </div>
+
+      <div id="feedback" class="message"></div>
+      <ul id="uuidList" class="uuid-list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Проверка маршрутов API и валидации</h2>
+      <p class="subtitle">
+        Быстрые кнопки для демонстрации ответов сервера и обработки ошибок (HTTP 200 и 400).
+      </p>
+
+      <div class="quick-tests">
+        <button class="secondary" data-url="/api/uuid" type="button">GET /api/uuid (по умолчанию)</button>
+        <button class="secondary" data-url="/api/uuid?count=3" type="button">GET /api/uuid?count=3</button>
+        <button class="secondary" data-url="/api/uuid?count=10" type="button">GET /api/uuid?count=10</button>
+        <button class="secondary" data-url="/api/uuid?count=15" type="button">?count=15 (ошибка 400)</button>
+        <button class="secondary" data-url="/api/uuid?count=abc" type="button">?count=abc (ошибка 400)</button>
+        <button class="secondary" data-url="/api/status" type="button">GET /api/status</button>
+      </div>
+
+      <pre id="rawJson" class="json-box">Нажмите любую кнопку выше или «Сгенерировать», чтобы увидеть ответ сервера.</pre>
+    </section>
+
+    <footer>
+      Node.js · Express · crypto.randomUUID() · PWA (manifest.json + Service Worker)
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
