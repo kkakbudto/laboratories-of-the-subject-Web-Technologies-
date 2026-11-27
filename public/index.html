@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Список покупок — Вариант 17</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      color-scheme: light;
+      --burgundy: #490b1a;
+      --burgundy-hover: #621024;
+      --navy: #142841;
+      --navy-hover: #1d385a;
+      --slate: #798da6;
+      --cream: #e5dec2;
+      --surface: #f5f0dc;
+      --border: rgba(20, 40, 65, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      padding: 28px 16px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 6px 20px rgba(20, 40, 65, 0.08);
+      margin-bottom: 16px;
+    }
+
+    .hero-card {
+      background: var(--navy);
+      color: var(--cream);
+      border-color: var(--navy);
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: rgba(229, 222, 194, 0.82);
+      font-size: 0.92rem;
+      font-weight: 400;
+    }
+
+    .endpoints {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 0.82rem;
+    }
+
+    .endpoints a {
+      color: var(--cream);
+      text-decoration: none;
+      background: rgba(121, 141, 166, 0.24);
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(121, 141, 166, 0.45);
+      font-weight: 500;
+      transition: background 0.15s ease;
+    }
+
+    .endpoints a:hover {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    input[type="text"],
+    select,
+    button {
+      font-family: inherit;
+    }
+
+    input[type="text"],
+    select {
+      padding: 11px 14px;
+      border: 1px solid var(--slate);
+      border-radius: 9px;
+      font-size: 0.94rem;
+      background: #fbf8ec;
+      color: var(--navy);
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      outline: 2px solid var(--navy);
+      outline-offset: 1px;
+    }
+
+    input[type="text"] {
+      flex: 1 1 240px;
+    }
+
+    button {
+      padding: 11px 18px;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      background: var(--burgundy);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: var(--burgundy-hover);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .filter-btn {
+      background: rgba(121, 141, 166, 0.22);
+      color: var(--navy);
+      padding: 7px 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(121, 141, 166, 0.35);
+    }
+
+    .filter-btn:hover {
+      background: rgba(121, 141, 166, 0.36);
+    }
+
+    .filter-btn.active {
+      background: var(--navy);
+      color: var(--cream);
+      border-color: var(--navy);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    li:last-child { border-bottom: none; }
+
+    .item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .item-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 600;
+    }
+
+    .purchased .item-name {
+      text-decoration: line-through;
+      color: var(--slate);
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-HIGH {
+      background: var(--burgundy);
+      color: var(--cream);
+    }
+
+    .badge-MEDIUM {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    .badge-LOW {
+      background: var(--slate);
+      color: #ffffff;
+    }
+
+    .meta {
+      font-size: 0.78rem;
+      color: #4a5d75;
+      font-weight: 500;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn-toggle {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 7px 13px;
+      font-size: 0.82rem;
+    }
+
+    .btn-toggle:hover {
+      background: var(--navy-hover);
+    }
+
+    .btn-delete {
+      background: rgba(73, 11, 26, 0.12);
+      color: var(--burgundy);
+      border: 1px solid rgba(73, 11, 26, 0.25);
+      padding: 7px 13px;
+      font-size: 0.82rem;
+    }
+
+    .btn-delete:hover {
+      background: var(--burgundy);
+      color: var(--cream);
+    }
+
+    .error {
+      color: var(--burgundy);
+      margin-top: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .empty {
+      color: #4a5d75;
+      text-align: center;
+      padding: 22px 0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card hero-card">
+      <h1>Список покупок (Вариант 17)</h1>
+      <p class="subtitle">SQLite + Express CRUD API (сортировка: HIGH → MEDIUM → LOW)</p>
+      <div class="endpoints">
+        <a href="/api/shopping" target="_blank">GET /api/shopping</a>
+        <a href="/api/shopping?priority=HIGH" target="_blank">GET /api/shopping?priority=HIGH</a>
+        <a href="/health" target="_blank">GET /health</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <form id="add-form">
+        <input type="text" id="item-name" placeholder="Название покупки (например, Молоко)" required />
+        <select id="priority">
+          <option value="HIGH">HIGH</option>
+          <option value="MEDIUM" selected>MEDIUM</option>
+          <option value="LOW">LOW</option>
+        </select>
+        <button type="submit" class="btn-primary">Добавить</button>
+      </form>
+      <div id="error-box" class="error" hidden></div>
+    </div>
+
+    <div class="card">
+      <div class="filters">
+        <button class="filter-btn active" data-priority="">Все</button>
+        <button class="filter-btn" data-priority="HIGH">HIGH</button>
+        <button class="filter-btn" data-priority="MEDIUM">MEDIUM</button>
+        <button class="filter-btn" data-priority="LOW">LOW</button>
+      </div>
+      <ul id="shopping-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    const listEl = document.getElementById('shopping-list');
+    const formEl = document.getElementById('add-form');
+    const nameInput = document.getElementById('item-name');
+    const prioritySelect = document.getElementById('priority');
+    const errorBox = document.getElementById('error-box');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    let currentFilter = '';
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.hidden = !msg;
+    }
+
+    async function loadItems() {
+      showError('');
+      const url = currentFilter
+        ? `/api/shopping?priority=${encodeURIComponent(currentFilter)}`
+        : '/api/shopping';
+
+      const res = await fetch(url);
+      const data = await res.json();
+      if (!res.ok) {
+        showError(data.error || 'Ошибка загрузки списка');
+        return;
+      }
+
+      renderItems(data);
+    }
+
+    function renderItems(items) {
+      listEl.innerHTML = '';
+      if (items.length === 0) {
+        listEl.innerHTML = '<li class="empty">Список покупок пуст</li>';
+        return;
+      }
+
+      for (const item of items) {
+        const li = document.createElement('li');
+        if (item.purchased) li.classList.add('purchased');
+
+        const info = document.createElement('div');
+        info.className = 'item-info';
+
+        const title = document.createElement('div');
+        title.className = 'item-title';
+
+        const badge = document.createElement('span');
+        badge.className = `badge badge-${item.priority}`;
+        badge.textContent = item.priority;
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'item-name';
+        nameSpan.textContent = item.item_name;
+
+        title.append(badge, nameSpan);
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = `ID: ${item.id} · Куплено: ${item.purchased ? 'да' : 'нет'} · Обновлено: ${new Date(item.updated_at).toLocaleString()}`;
+
+        info.append(title, meta);
+
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'btn-toggle';
+        toggleBtn.textContent = item.purchased ? 'Вернуть' : 'Куплено';
+        toggleBtn.onclick = async () => {
+          const res = await fetch(`/api/shopping/${item.id}`, { method: 'PATCH' });
+          if (res.ok) loadItems();
+        };
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn-delete';
+        deleteBtn.textContent = 'Удалить';
+        deleteBtn.onclick = async () => {
+          const res = await fetch(`/api/shopping/${item.id}`, { method: 'DELETE' });
+          if (res.ok) loadItems();
+        };
+
+        actions.append(toggleBtn, deleteBtn);
+        li.append(info, actions);
+        listEl.appendChild(li);
+      }
+    }
+
+    formEl.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showError('');
+      const res = await fetch('/api/shopping', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          item_name: nameInput.value,
+          priority: prioritySelect.value,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        showError(data.error || 'Не удалось добавить покупку');
+        return;
+      }
+
+      nameInput.value = '';
+      loadItems();
+    });
+
+    for (const btn of filterButtons) {
+      btn.addEventListener('click', () => {
+        for (const b of filterButtons) b.classList.remove('active');
+        btn.classList.add('active');
+        currentFilter = btn.dataset.priority || '';
+        loadItems();
+      });
+    }
+
+    loadItems();
+  </script>
+</body>
+</html>
