@@ -1,0 +1,20 @@
+{
+  "name": "lab7-shopping-list",
+  "version": "1.0.0",
+  "description": "Лабораторная работа №7 (Вариант 17): Список покупок — SQLite и CRUD-операции с Express",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node src/db/seed.js"
+  },
+  "keywords": [
+    "express",
+    "sqlite",
+    "crud",
+    "rest-api"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
